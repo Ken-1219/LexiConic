@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faVolumeHigh } from '@fortawesome/free-solid-svg-icons';
 import DataContext from './Context/createContext';
+import PageNotFound from './PageNotFound';
 import Meanings from './Meanings';
 import './css/Card.css';
 
@@ -29,7 +30,7 @@ function Card() {
     return (
         <div className='card_parent'>
             <div className="main_card">
-                {data && data.length > 0 && (
+                {data && data.length > 0 ? (
                     <>
                         <div className="cardTitle">
                             <h1 className='word'>
@@ -66,10 +67,13 @@ function Card() {
                                     rel='noreferrer'>
                                     {data[0].sourceUrls[0]}
                                 </a>
+                       
                             </p>
 
                         </div>
                     </>
+                ) : (
+                    <PageNotFound/>
                 )}
             </div>
         </div>
